@@ -1,0 +1,140 @@
+
+package com.mycompany.impinterface;
+
+import java.util.Scanner;
+
+
+public class Carniceria {
+    public static void main (String args []){
+        Scanner dato= new Scanner (System.in);
+        System.out.println("Bienvenido a la carniceria");
+        Producto p1= new Producto ();
+        System.out.println("Ingrese el nombre del producto");
+        String nombre=dato.nextLine();
+        p1.setNombre(nombre);
+        
+    }
+}
+
+public class Producto {
+    
+   private String nombre;
+   private Date F_caducidad;
+   private String coProducto;
+
+    public String getCoProducto() {
+        return coProducto;
+    }
+
+    public void setCoProducto(String coProducto) {
+        this.coProducto = coProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Date getF_caducidad() {
+        return F_caducidad;
+    }
+
+    public void setF_caducidad(Date F_caducidad) {
+        this.F_caducidad = F_caducidad;
+    }
+
+ }
+
+public class TipoProducto {
+    private String Tipo_Carne;
+    private String coProducto;
+    private String Descripcion;
+
+    public String getTipo_Carne() {
+        return Tipo_Carne;
+    }
+
+    public void setTipo_Carne(String Tipo_Carne) {
+        this.Tipo_Carne = Tipo_Carne;
+    }
+
+    public String getCoProducto() {
+        return coProducto;
+    }
+
+    public void setCoProducto(String coProducto) {
+        this.coProducto = coProducto;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+  
+}
+
+public class Factura implements MetPago {
+    private String noFac;
+    private Date femision;
+    private float totalcancelar;
+
+    public String getNoFac() {
+        return noFac;
+    }
+
+    public void setNoFac(String noFac) {
+        this.noFac = noFac;
+    }
+
+    public Date getFemision() {
+        return femision;
+    }
+
+    public void setFemision(Date femision) {
+        this.femision = femision;
+    }
+
+    public float getTotalcancelar() {
+        return totalcancelar;
+    }
+
+    public void setTotalcancelar(float totalcancelar) {
+        this.totalcancelar = totalcancelar;
+    }
+    
+    public void pTarjeta (){
+
+        Scanner dato= new Scanner (System.in);
+        System.out.println ("Ingrese el numero de tarjeta ");
+        String noTarjeta;
+        noTarjeta=dato.nextLine();
+        System.out.println("Pago realizado exitosamente");
+        
+       
+    }
+
+    @Override
+    public void pEfectivo() {
+        Scanner dato= new Scanner (System.in);
+        System.out.println ("Ingrese la cantidad a pagar ");
+        float Cpaga;
+        Cpaga= dato.nextFloat();
+        float cambio=0;
+        System.out.println("Su cambio es:"+cambio);
+        System.out.println("Transacción realizada con exito");
+        
+    }
+}
+
+public interface MetPago {
+    public void pTarjeta ();
+    public void pEfectivo ();
+}
+
+
